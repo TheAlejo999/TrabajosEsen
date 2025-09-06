@@ -1,0 +1,18 @@
+.cabecera {
+    color: #22a5e7;
+}
+
+.visual {
+    background-color: black;
+    color: #22a5e7;
+}
+
+.visual h3 {
+    font-style: italic;
+    font-size: large;
+}
+
+hr {
+    border: 1px solid #22a5e7;
+}
+
