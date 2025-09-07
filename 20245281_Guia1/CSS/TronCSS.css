@@ -1,10 +1,23 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .cabecera {
     color: #22a5e7;
+    text-align: center;
+    padding: 20px 0;
+    padding: 20px;
+    text-transform: uppercase;
 }
 
 .visual {
     background-color: black;
     color: #22a5e7;
+    text-align: center;
+    padding: 20px;
 }
 
 .visual h3 {
@@ -16,3 +29,9 @@ hr {
     border: 1px solid #22a5e7;
 }
 
+.footer {
+    color: #22a5e7;
+    text-align: center;
+    font-size: small;
+    padding: 20px;
+}
