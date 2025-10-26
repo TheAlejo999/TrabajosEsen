@@ -1,13 +1,93 @@
-
-
-@media screen and (max-width: 480px) {
-    
+html {
+    background-color: beige;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+ul li {
+    background-color: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 0;
+    list-style: none;
+}
+
+ul li:hover {
+    background-color: #e6e6e6;
+    cursor: default;
+}
+
+.personal-info {
+    background-color: lightblue;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.personal-info h1 {
+    font-size: 2em;
+}
+
+.personal-info h2 {
+    font-size: 1.3em;
+}
+
+.personal-info h3 {
+    font-size: 1.1em;
+}
+
+.personal-info hr {
+    border: 1px solid #000;
+    margin: 10px 0;
+}
+
+.desc-materia {
+    background-color: lightseagreen;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.guias-estudio {
+    background-color: lightcoral;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: lightgray;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/*Para dispositivos móviles*/
+@media screen and (max-width: 480px) {
+    .personal-info, .desc-materia, .guias-estudio, footer {
+        font-size: 0.9em;
+        text-align: center;
+    }
+}
+
+/*Para tablets*/
 @media screen and (max-width: 481px) and (max-width: 768px) {
     
 }
 
+/*Para pantallas de computadoras*/
 @media screen and (max-width: 769px) {
     
 }
