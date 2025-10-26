@@ -133,11 +133,9 @@ nav ul li a:hover {
 #galeria.plan {
     font-size: 0.8em;
     padding-bottom: 10px;
-    margin: 10px 1%;
-    display: inline-block;
+    margin: 10px auto;
     float: none;
-    vertical-align: top;
-    width: 44%;
+    width: 90%;
     text-align: center;
     font-style: italic;
 }
