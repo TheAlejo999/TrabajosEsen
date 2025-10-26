@@ -49,3 +49,39 @@ span {
 }
 
 /* Estilo para Tablets*/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    body {
+        background-color: #FF9800;
+    }
+
+    div {
+        width: 85%;
+    }
+
+    .tablet {
+        display: inline-block;
+    }
+}
+
+/* Estilos para PC */
+@media screen and (min-width: 769px) {
+    html {
+        font-size: 16px;
+    }
+    
+    body {
+        background-color: #BBBBBB;
+    }
+    
+    div {
+        width: 75%;
+    }
+    
+    .escritorio {
+        display: inline-block;
+    }
+}
