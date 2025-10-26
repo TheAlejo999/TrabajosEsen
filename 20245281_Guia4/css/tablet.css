@@ -49,9 +49,7 @@ nav ul li a#galeria {
 /*PARTE SUPERIOR*/
 #encabezado{
     margin: 0px auto;
-    width: 80%;
-    min-width: 650px;
-    max-width: 960px;
+    width: 90%;
 }
 
 #superior #encabezado #logo{
