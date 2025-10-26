@@ -99,7 +99,10 @@ nav ul li a#galeria {
 }
 
 .plan img{
-    width: 100%;
+    width: 50%;
+    height: auto;
+    float: left;
+    margin-right: 20px;
 }
 
 #contenido div:nth-child(3n+1){

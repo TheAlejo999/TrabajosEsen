@@ -110,12 +110,9 @@ nav ul li a#galeria {
     width: 100%;
 }
 
-#contenido div:nth-child(3n+1){
-    margin-left: 0px;
-}
-
-#contenido div:nth-child(3n){
-    margin-right: 0px;
+.boton {
+    width: 40%;
+    float: right;
 }
 
 /*CONTENIDO DE PLANES*/
