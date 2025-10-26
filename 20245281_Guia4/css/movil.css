@@ -39,8 +39,8 @@ nav ul li a:hover {
 }
 
 #superior #encabezado #logo{
-    margin: 2% 0px;
-    width: 21%;
+    margin: 10px 0px;
+    width: 120px;
     height: auto;
 }
 
@@ -51,7 +51,8 @@ nav ul li a:hover {
 }
 
 #imgDesc{
-    overflow: hidden;
+    overflow: auto;
+    width: 100%;
 }
 
 #descripcion{
@@ -63,7 +64,7 @@ nav ul li a:hover {
     color: white;
     line-height: 140%;
     text-align:justify;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 #contenido{
@@ -74,26 +75,31 @@ nav ul li a:hover {
 
 /*CONTENIDO DE INDEX*/
 .plan{
-    width: 94%;
-    padding: 1.5%;
-    margin: 20px 1.5%;
+    width: 92%;
+    padding: 10px 2%;
+    margin: 20px 1%;
     background-color:white;
     border: solid 1px black;
     border-radius: 10px;
-    float: left;
     text-align: justify;
 }
 
 .plan img{
-    width: 50%;
+    width: 100%;
     height: auto;
-    float: left;
-    margin-right: 20px;
 }
 
 .boton {
-    width: 40%;
-    float: right;
+    width: 92%;
+    margin: 5px auto;
+}
+
+.plan p {
+    font-size: 0.8em;
+}
+
+.plan h1 {
+    font-size: 1em;
 }
 
 /*CONTENIDO DE PLANES*/
