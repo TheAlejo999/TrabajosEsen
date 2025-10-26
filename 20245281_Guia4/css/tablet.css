@@ -59,9 +59,9 @@ nav ul li a#galeria {
 }
 
 #imgDesc img{
-    width: 62.5%;
+    width: 100%;
     height: auto;
-    float: left;
+    float: none;
 }
 
 #imgDesc{
@@ -69,18 +69,15 @@ nav ul li a#galeria {
 }
 
 #descripcion{
-    width: 37.5%;
-    background-color: #888;
-    float: left;
+    width: 100%;
 }
 
 #descripcion p{
-    margin: 5%;
+    margin: 20px 0px 10px 0px;
     color: white;
-    font-weight: bold;
-    line-height: 170%;
+    line-height: 140%;
     text-align:justify;
-    font-size: 0.95em;
+    font-size: 1em;
 }
 
 #contenido{
