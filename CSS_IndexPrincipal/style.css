@@ -87,7 +87,7 @@ ul li:hover {
     text-align: justify;
 }
 
-.desc-materia, .guias-estudio {
+.desc-materia, .guias-estudio, .foda {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -109,7 +109,7 @@ footer {
 
 /*Para dispositivos móviles*/
 @media screen and (max-width: 480px) {
-    .personal-info, .desc-materia, .guias-estudio, footer {
+    .personal-info, .desc-materia, .guias-estudio, footer, .foda {
         font-size: 11px;
         text-align: center;
     }
@@ -121,7 +121,7 @@ footer {
 
 /*Para tablets*/
 @media screen and (min-width: 481px) and (max-width: 768px) {
-    .personal-info, .desc-materia, .guias-estudio, footer {
+    .personal-info, .desc-materia, .guias-estudio, footer, .foda {
         font-size: 13px;
         text-align: justify;
     }
@@ -134,7 +134,7 @@ footer {
 
 /*Para pantallas de computadoras*/
 @media screen and (min-width: 769px) {
-    .personal-info, .desc-materia, .guias-estudio, footer {
+    .personal-info, .desc-materia, .guias-estudio, footer, .foda {
         font-size: 16px;
         text-align: justify;
     }
