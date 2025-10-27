@@ -87,6 +87,14 @@ ul li:hover {
     text-align: justify;
 }
 
+.foda {
+    background-color: rgb(222, 171, 226);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: justify;
+}
+
 .desc-materia, .guias-estudio, .foda {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
