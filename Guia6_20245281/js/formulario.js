@@ -82,8 +82,9 @@ function ImprimirFilas() {
     let $fila = "";
     let contador = 1;
 
-    arrayPaciente.forEach((element) => {
-        $fila += `<td class="text-center fw-bold">${contador}</td>
+    arrayPaciente.forEach((element, index) => { // Agregamos 'index' al forEach
+        $fila += `<tr>
+                <td class="text-center fw-bold">${contador}</td>
                 <td>${element[0]}</td>
                 <td>${element[1]}</td>
                 <td>${element[2]}</td>
@@ -91,10 +92,10 @@ function ImprimirFilas() {
                 <td>${element[4]}</td>
                 <td>${element[5]}</td>
                 <td>
-                    <button id="idBtnEditar${contador}" type="button" class="btn btn-primary" alt="Eliminar">
+                    <button type="button" class="btn btn-primary" onclick="editarPaciente(${index})">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button id="idBtnEliminar${contador}" type="button" class="btn btn-danger" alt="Editar">
+                    <button type="button" class="btn btn-danger" onclick="eliminarPaciente(${index})">
                         <i class="bi bi-trash3-fill"></i>
                     </button>
                 </td>
@@ -174,3 +175,33 @@ idModal.addEventListener("shown.bs.modal", () => {
 
 //Ejecutar funcion al momento de cargar la pagina HTML
 limpiarForm();
+
+// --- Funciones para Editar y Eliminar ---
+
+const eliminarPaciente = (index) => {
+    // Elimina 1 elemento del arrayPaciente en la posición 'index'
+    arrayPaciente.splice(index, 1); 
+
+    // Muestra una notificación de éxito
+    mensaje.innerHTML = "Paciente eliminado correctamente";
+    toast.show();
+
+    // Vuelve a imprimir la tabla con los datos actualizados
+    imprimirPacientes(); 
+};
+
+const editarPaciente = (index) => {
+    // Por simplicidad, esta función solo mostrará un mensaje
+    // En una aplicación real, aquí cargarías los datos del paciente en el formulario para editar
+    
+    // Obtener los datos del paciente a editar
+    const paciente = arrayPaciente[index];
+
+    // Mostrar una notificación de qué paciente se está editando
+    mensaje.innerHTML = `Editando a: ${paciente[0]} ${paciente[1]}`;
+    toast.show();
+    
+    // Aquí iría la lógica para cargar los datos en el formulario...
+    // inputNombre.value = paciente[0];
+    // ...
+};
