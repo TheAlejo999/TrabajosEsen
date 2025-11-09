@@ -1,20 +1,17 @@
-const containerResultado = document.getQuerySelector("#idContainerResultado");
-const btnCalcular = document.getQuerySelector("#idBtnCalcular");
+const containerResultado = document.querySelector("#idContainerResultado");
+
+const btnCalcular = document.querySelector("#idBtnCalcular");
 
 btnCalcular.addEventListener("click", calcularTabla);
 
 function calcularTabla() {
-    //capturando el valor del campo
-    const inputTabla = document.querySelector("#inputTabla").value;
+    const inputTabla = document.querySelector("#inputTable").value;
     
-    //initializamos nuestro contador
     let contador = 1;
     
-    //verifiquemos que el dato colocado sea un numero entero positivo
     if (inputTabla > 0) {
         let tabla = `<h2>Tabla de multiplicar del ${inputTabla}</h2>`;
-        //utilizaremos do while para generar la tabla de multiplicar
-        // que el usuario ha indicado
+
         do {
             let resultado = contador * inputTabla;
             tabla += `<div class="row text-center">`;
@@ -25,13 +22,11 @@ function calcularTabla() {
             tabla += `<div class="col-md-1 colum"><h3>${resultado}</h3></div>`;
             tabla += `</div>`;
             
-            //incrementamos el valor del contador
-            //para que podamos salir del do while
             contador++;
         } while (contador <= 12);
         
-        document.querySelector("#inputTabla").value = 1;
-        document.querySelector("#inputTabla").focus();
+        document.querySelector("#inputTable").value = 1;
+        document.querySelector("#inputTable").focus();
         containerResultado.innerHTML = tabla;
     } else {
         alert("No se ha ingresado un número válido");
