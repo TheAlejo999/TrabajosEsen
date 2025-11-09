@@ -1,4 +1,4 @@
-//Accediendo a los elementos html
+
 const inputNombre = document.getElementById("idTxtNombre");
 const inputApellido = document.getElementById("idTxtApellido");
 const inputFechaNacimiento = document.getElementById("idTxtFechaNacimiento");
@@ -14,14 +14,12 @@ const buttonMostrarPaciente = document.getElementById("idBtnMostrar");
 const buttonAgregarPais = document.getElementById("idBtnAddPais");
 
 const notificacion = document.getElementById("idNotificacion");
-// Componente de Bootstrap
+
 const toast = new bootstrap.Toast(notificacion);
 const mensaje = document.getElementById("idMensaje");
 
-//Componente modal
 const idModal = document.getElementById("idModal");
 
-//Arreglo global de pacientes
 let arrayPaciente = [];
 
 const limpiarForm = () => {
@@ -58,22 +56,17 @@ const addPaciente = function () {
         pais != 0 &&
         direccion != ""
     ) {
-        //Agregando informacion al arreglo paciente
         arrayPaciente.push(
             new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion)
         );
 
-        //Asignando un mensaje a nuestra notificacion
         mensaje.innerHTML = "Se ha registrado un nuevo paciente";
-        //Llamando al componente de Bootstrap
         toast.show();
 
-        //Limpiando formulario
+
         limpiarForm();
     } else {
-        //Asignando un mensaje a nuestra notificacion
         mensaje.innerHTML = "Faltan campos por completar";
-        //Llamando al componente de Bootstrap
         toast.show();
     }
 };
@@ -82,7 +75,7 @@ function ImprimirFilas() {
     let $fila = "";
     let contador = 1;
 
-    arrayPaciente.forEach((element, index) => { // Agregamos 'index' al forEach
+    arrayPaciente.forEach((element, index) => { 
         $fila += `<tr>
                 <td class="text-center fw-bold">${contador}</td>
                 <td>${element[0]}</td>
@@ -130,27 +123,20 @@ const addPais = () => {
     let paisNew = inputNombrePais.value;
 
     if (paisNew != "") {
-        // Creando nuevo option con la API DOM
         let option = document.createElement("option");
         option.textContent = paisNew;
         option.value = contadorGlobalOption + 1;
 
-        //Agregando el nuevo option en el select
         cmbPais.appendChild(option);
 
-        //Asignando un mensaje a nuestra notificacion
         mensaje.innerHTML = "Pais agregado correctamente";
-        //Llamando al componente de Bootstrap
         toast.show();
     } else {
-        //Asignando un mensaje a nuestra notificacion
         mensaje.innerHTML = "Faltan campos por completar";
-        //Llamando al componente de Bootstrap
         toast.show();
     }
 };
 
-// Agregando eventos a los botones y utilizando funciones tipo flecha
 buttonLimpiarPaciente.onclick = () => {
     limpiarForm();
 };
@@ -167,41 +153,101 @@ buttonAgregarPais.onclick = () => {
     addPais();
 };
 
-// Se agrega el focus en el campo nombre pais del modal
 idModal.addEventListener("shown.bs.modal", () => {
     inputNombrePais.value = "";
     inputNombrePais.focus();
 });
 
-//Ejecutar funcion al momento de cargar la pagina HTML
 limpiarForm();
 
 // --- Funciones para Editar y Eliminar ---
 
 const eliminarPaciente = (index) => {
-    // Elimina 1 elemento del arrayPaciente en la posición 'index'
     arrayPaciente.splice(index, 1); 
 
-    // Muestra una notificación de éxito
     mensaje.innerHTML = "Paciente eliminado correctamente";
     toast.show();
 
-    // Vuelve a imprimir la tabla con los datos actualizados
     imprimirPacientes(); 
 };
 
 const editarPaciente = (index) => {
-    // Por simplicidad, esta función solo mostrará un mensaje
-    // En una aplicación real, aquí cargarías los datos del paciente en el formulario para editar
-    
-    // Obtener los datos del paciente a editar
     const paciente = arrayPaciente[index];
 
-    // Mostrar una notificación de qué paciente se está editando
     mensaje.innerHTML = `Editando a: ${paciente[0]} ${paciente[1]}`;
     toast.show();
-    
-    // Aquí iría la lógica para cargar los datos en el formulario...
-    // inputNombre.value = paciente[0];
-    // ...
 };
+
+// --- Expresiones Regulares para Validación ---
+
+const regex = {
+    carnet: /^[A-Za-z]{2}\d{3}$/, 
+    
+    nombre: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/, 
+    
+    dui: /^\d{8}-\d{1}$/, 
+    
+    nit: /^\d{4}-\d{6}-\d{3}-\d{1}$/,
+    
+    fecha: /^\d{2}\/\d{2}\/\d{4}$/, 
+    
+    correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 
+    
+    edad: /^\d+$/
+};
+
+// --- Función de Validación de Formulario de Estudiante (Ejemplo) ---
+
+const validarEstudiante = (datos) => {
+    let errores = [];
+
+    if (!regex.carnet.test(datos.carnet)) {
+        errores.push("Carnet inválido. Formato esperado: AA001.");
+    }
+
+    if (!regex.nombre.test(datos.nombre)) {
+        errores.push("Nombre inválido. Solo se permiten letras y espacios.");
+    }
+    
+    if (datos.dui && !regex.dui.test(datos.dui)) { 
+        errores.push("DUI inválido. Formato esperado: 12345678-9.");
+    }
+    
+    if (datos.nit && !regex.nit.test(datos.nit)) {
+        errores.push("NIT inválido. Formato esperado: 1234-567890-123-4.");
+    }
+
+    if (!regex.fecha.test(datos.fechaNacimiento)) {
+        errores.push("Fecha de nacimiento inválida. Formato esperado: DD/MM/AAAA.");
+    }
+    
+    if (!regex.correo.test(datos.correo)) {
+        errores.push("Correo electrónico inválido.");
+    }
+    
+    if (!regex.edad.test(datos.edad)) {
+        errores.push("Edad inválida. Solo se permiten números.");
+    }
+
+    return errores;
+};
+
+// --- Ejemplo de Uso ---
+
+const datosEstudiante = {
+    carnet: "JR240",
+    nombre: "Juan Perez",
+    dui: "08765432-1",
+    nit: "0614-150890-101-3",
+    fechaNacimiento: "24/08/2000",
+    correo: "juan.perez@estudiante.edu",
+    edad: "23"
+};
+
+const resultados = validarEstudiante(datosEstudiante);
+
+if (resultados.length === 0) {
+    console.log("Validación exitosa: Todos los campos son correctos.");
+} else {
+    console.error("Errores de validación:", resultados);
+}
